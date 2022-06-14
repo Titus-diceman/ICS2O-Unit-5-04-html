@@ -1,37 +1,42 @@
-/* Created by: Titus Diceman
+/* Created by: Titus diceman
    Created on: April 2022
    This file contains the JS functions for index.html*/
 
 'use strict'
 
 /**
- * Check servie worker.
+ * Check service worker.
  */
  if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-unit-5-03-html/sw.js", {
-    scope: "/ICS2O-unit-5-03-html/",
+  navigator.serviceWorker.register("/ICS2O-Unit-5-04-html/sw.js", {
+    scope: "/ICS2O-Unit-5-04-html/",
   })
 }
 
 /**
- * This function displays the code for moive rating.
+ * Input.
  */
-function buttonClicked() {
 
-   var Monday = document.getElementById("Monday")
-   var Tuesday = document.getElementById("Wednesday")
-   var Wednesday = document.getElementById("Wednesday")
-   var Thursday = document.getElementById("Thursday")
-   var Friday = document.getElementById("Friday")
-   var Friday = document.getElementById("Saturday")
-   var Saturday = document.getElementById("Saturday")
-   var Sunday = document.getElementById("Sunday")
-  
-  if ((Tuesday.checked == true || Thursday.checked == true) || ( age >= 12 && age <= 21)) {
-    document.getElementById("day").innerHTML =
-    "you get a discounted price"
+ function buttonClicked() {
+
+  const age = parseInt(document.getElementById('age').value)
+
+  var monday = document.getElementById("monday")
+  var tuesday = document.getElementById("tuesday")
+  var wednesday = document.getElementById("wednesday")
+  var thursday = document.getElementById("thursday")
+  var friday = document.getElementById("friday")
+  var sunday = document.getElementById("sunday")
+  var saturday = document.getElementById("saturday")
+
+  if ((tuesday.checked == true || thursday.checked == true) || (age >= 12 && age <= 21)) {
+    document.getElementById("output").innerHTML =
+  "You are eligible for student pricing!"
+  console.log("eligible for student pricing")
   } else {
-    document.getElementById("day").innerHTML =
-    "you have to pay normal price"
+  document.getElementById("output").innerHTML =
+  "You must pay regular pricing."
+  console.log("not eligible for student pricing")
   }
-}
+ }
+
